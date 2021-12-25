@@ -13,8 +13,10 @@ import com.geek45.geekresult.util.LoggerUtils;
 import com.geek45.geekresult.vo.ResultVO;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
+import org.springframework.stereotype.Component;
 
 /**
  * @ClassName: ExceptionHandlerAspect
@@ -22,13 +24,15 @@ import org.slf4j.Logger;
  * @Author: rubik
  * rubik create ExceptionHandlerAspect.java of 2021/12/24 11:20 下午
  */
+@Component
+@Aspect
 public class ExceptionHandlerAspect {
     private static final Logger logger = LoggerUtils.SYSTEM_LOGGER;
 
     @Pointcut("@annotation(com.geek45.geekresult.annotation.ExceptionHandler)")
     public void aroundCatchException() {}
 
-    @Around("aroundCatchException")
+    @Around(value = "aroundCatchException()")
     public Object aroundLogic(ProceedingJoinPoint proceedingJoinPoint) {
         String methodName = null;
         try {

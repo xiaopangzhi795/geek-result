@@ -6,6 +6,7 @@ package com.geek45.geekresult.validator;
 
 import com.geek45.geekresult.enums.ResultCodeEnums;
 import com.geek45.geekresult.exception.BizException;
+import com.geek45.geekresult.exception.SystemException;
 import com.geek45.geekresult.exception.ValidationException;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -19,6 +20,21 @@ import java.util.Collection;
  * rubik create ValidateUtils.java of 2021/12/24 10:34 下午
  */
 public class ValidateUtils {
+
+    /**
+     * 抛出系统异常
+     */
+    public static void throwSystemException() {
+        throwSystemExceptionWithDesc(ResultCodeEnums.SYSTEM_ERROR.getDesc());
+    }
+
+    /**
+     * 抛出系统异常
+     * @param desc
+     */
+    public static void throwSystemExceptionWithDesc(String desc) {
+        throw SystemException.createSystemException(desc);
+    }
 
     /**
      * 抛出校验异常
@@ -144,18 +160,7 @@ public class ValidateUtils {
      * @param target
      */
     public static void throwExceptionIfEqualsFalseWithDesc(String desc, String src, String target) {
-        throwExceptionIfAnyEqualsFalseWithDesc(desc, src, target);
-    }
-
-    /**
-     * 字符串如果有任何不相同，就抛出异常
-     *
-     * @param desc
-     * @param src
-     * @param target
-     */
-    public static void throwExceptionIfAnyEqualsFalseWithDesc(String desc, String src, String... target) {
-        if (StringUtils.equalsAnyIgnoreCase(src, target)) {
+        if (!StringUtils.equals(src, target)) {
             throw ValidationException.createValidationException(desc);
         }
     }
@@ -194,7 +199,7 @@ public class ValidateUtils {
     }
 
     /**
-     * 如果有任何一个为空就抛出异常
+     * 如果有任何一个不为空就抛出异常
      * @param v
      */
     public static void throwExceptionIfNotBlank(String v) {
@@ -202,7 +207,7 @@ public class ValidateUtils {
     }
 
     /**
-     * 如果有任何一个为空就抛出异常
+     * 如果有任何一个不为空就抛出异常
      *
      * @param v
      * @param desc 异常说明
