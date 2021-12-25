@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.geek45</groupId>
     <artifactId>geek-result</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <name>geek-result</name>
     <description>geek-result</description>
     <properties>
