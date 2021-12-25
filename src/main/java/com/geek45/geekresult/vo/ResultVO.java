@@ -5,14 +5,16 @@
 package com.geek45.geekresult.vo;
 
 import com.geek45.geekresult.exception.BizException;
+import com.geek45.geekresult.exception.SystemException;
+import com.geek45.geekresult.exception.ValidationException;
 
 import java.io.Serializable;
 
 /**
  * @ClassName: ResultVO
  * @Decription:
- * @Author: qian
- * qian create ResultVO.java of 2021/12/24 10:16 下午
+ * @Author: rubik
+ * rubik create ResultVO.java of 2021/12/24 10:16 下午
  */
 public class ResultVO<E> implements Serializable {
 
@@ -101,7 +103,13 @@ public class ResultVO<E> implements Serializable {
      */
     public E unwrap() {
         if (null != throwable) {
-            throw BizException.createBizException(throwable);
+            if (throwable instanceof BizException) {
+                throw BizException.createBizException(throwable);
+            }
+            if (throwable instanceof ValidationException) {
+                throw ValidationException.createValidationException(throwable);
+            }
+            throw SystemException.createSystemException(throwable);
         } else {
             return this.payload;
         }

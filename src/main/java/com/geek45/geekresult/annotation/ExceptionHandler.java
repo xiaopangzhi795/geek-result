@@ -9,8 +9,8 @@ import java.lang.annotation.*;
 /**
  * @ClassName: ExceptionHandler
  * @Decription: 异常处理器
- * @Author: qian
- * qian create ExceptionHandler.java of 2021/12/24 11:19 下午
+ * @Author: rubik
+ * rubik create ExceptionHandler.java of 2021/12/24 11:19 下午
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)

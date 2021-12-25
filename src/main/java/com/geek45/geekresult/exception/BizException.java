@@ -7,8 +7,8 @@ package com.geek45.geekresult.exception;
 /**
  * @ClassName: BizException
  * @Decription:
- * @Author: qian
- * qian create BizException.java of 2021/12/24 10:25 下午
+ * @Author: rubik
+ * rubik create BizException.java of 2021/12/24 10:25 下午
  */
 public class BizException extends RuntimeException {
     /**

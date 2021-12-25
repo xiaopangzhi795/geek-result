@@ -10,8 +10,8 @@ import org.slf4j.LoggerFactory;
 /**
  * @ClassName: LoggerUtils
  * @Decription:
- * @Author: qian
- * qian create LoggerUtils.java of 2021/12/24 11:32 下午
+ * @Author: rubik
+ * rubik create LoggerUtils.java of 2021/12/24 11:32 下午
  */
 public class LoggerUtils {
 

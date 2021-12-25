@@ -7,8 +7,8 @@ package com.geek45.geekresult.enums;
 /**
  * @ClassName: ErrorCodeEnums
  * @Decription:
- * @Author: qian
- * qian create ErrorCodeEnums.java of 2021/12/24 10:42 下午
+ * @Author: rubik
+ * rubik create ErrorCodeEnums.java of 2021/12/24 10:42 下午
  */
 public enum ResultCodeEnums {
     SUCCESS("成功", "200"),
@@ -19,6 +19,8 @@ public enum ResultCodeEnums {
     PARAM_REQUEST("参数异常", "412"),
     UNAUTHORIZED("需要登录", "401"),
     FORBIDDEN("没有权限", "403"),
+    VALIDATION("参数校验失败", "10001"),
+    UN_KNOW_EXCEPTION("未知异常", "10002"),
     ;
 
     private String desc;
